@@ -21,6 +21,7 @@ import androidx.navigation.navArgument
 import com.example.kulinerapp.home.navigation_fragment.ScreenDetail
 import com.example.kulinerapp.home.navigation_fragment.ScreenFavorite
 import com.example.kulinerapp.home.navigation_fragment.ScreenHome
+import com.example.kulinerapp.home.navigation_fragment.ScreenProfile
 import com.example.kulinerapp.ui.navigations.ItemNavigation
 import com.example.kulinerapp.ui.navigations.Screen
 
@@ -67,7 +68,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 ScreenFavorite(navController, scaffoldState)
             }
             composable(Screen.Profile.route) {
-               // ProfileScreen()
+                ScreenProfile()
             }
         }
     }
