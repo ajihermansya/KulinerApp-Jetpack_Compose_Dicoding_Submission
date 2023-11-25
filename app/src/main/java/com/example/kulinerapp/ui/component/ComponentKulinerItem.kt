@@ -22,7 +22,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
@@ -79,6 +78,7 @@ fun ComponentKulinetItem(
                     modifier = Modifier
                         .clip(RoundedCornerShape(bottomEnd = 8.dp))
                         .background(MaterialTheme.colors.primaryVariant)
+                        .align(Alignment.TopEnd)
                 ) {
                     Row(
                         modifier = Modifier.padding(8.dp),
@@ -89,7 +89,7 @@ fun ComponentKulinetItem(
                             text = location,
                             style = MaterialTheme.typography.body2,
                             color = MaterialTheme.colors.onPrimary,
-                            modifier = Modifier.align(Alignment.CenterVertically)
+                            modifier = Modifier.align(Alignment.Top)
                         )
                     }
                 }

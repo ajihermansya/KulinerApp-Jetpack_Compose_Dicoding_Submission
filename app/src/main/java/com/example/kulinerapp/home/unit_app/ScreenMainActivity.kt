@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -19,6 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.kulinerapp.home.navigation_fragment.DetailScreen
 import com.example.kulinerapp.home.navigation_fragment.HomeScreen
 import com.example.kulinerapp.ui.navigations.ItemNavigation
 import com.example.kulinerapp.ui.navigations.Screen
@@ -60,7 +60,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 )
             ) {
                 val kulinerId = it.arguments?.getInt("kulinerId") ?: 0
-               // DetailScreen(kulinerId, navController, scaffoldState)
+                DetailScreen(kulinerId, navController, scaffoldState)
             }
             composable(Screen.Favorite.route) {
               //  FavoriteScreen(navController, scaffoldState)

@@ -26,10 +26,10 @@ class ViewModelHome @Inject constructor(private val repository: Repository) : Vi
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getAllKuliners().collect { tourism ->
-                when (tourism.isEmpty()) {
+            repository.getAllKuliners().collect { kuliner ->
+                when (kuliner.isEmpty()) {
                     true -> repository.insertAllKuliners(DataKuliner.dummy)
-                    else -> _allKuliner.value = StateInterface.Success(tourism)
+                    else -> _allKuliner.value = StateInterface.Success(kuliner)
                 }
             }
         }
