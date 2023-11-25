@@ -40,7 +40,7 @@ import com.example.kulinerapp.utils.set_sistem.RatingKuliner
 import kotlinx.coroutines.launch
 
 @Composable
-fun DetailScreen(kulinerId: Int, navController: NavController, scaffoldState: ScaffoldState) {
+fun ScreenDetail(kulinerId: Int, navController: NavController, scaffoldState: ScaffoldState) {
     val viewModelDetail = hiltViewModel<ViewModelDetail>()
     viewModelDetail.kuliners.collectAsState(StateInterface.Loading).value.let { uiState ->
         when (uiState) {

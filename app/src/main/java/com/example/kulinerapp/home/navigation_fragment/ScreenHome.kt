@@ -17,7 +17,7 @@ import com.example.kulinerapp.ui.component.ComponentSearchBar
 import com.example.kulinerapp.utils.StateInterface
 
 @Composable
-fun HomeScreen(navController: NavController, scaffoldState: ScaffoldState) {
+fun ScreenHome(navController: NavController, scaffoldState: ScaffoldState) {
     val homeViewModel = hiltViewModel<ViewModelHome>()
     val homeState by homeViewModel.stateHome
 

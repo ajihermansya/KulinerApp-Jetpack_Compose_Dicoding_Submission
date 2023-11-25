@@ -18,9 +18,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.kulinerapp.home.navigation_fragment.DetailScreen
-import com.example.kulinerapp.home.navigation_fragment.FavoriteScreen
-import com.example.kulinerapp.home.navigation_fragment.HomeScreen
+import com.example.kulinerapp.home.navigation_fragment.ScreenDetail
+import com.example.kulinerapp.home.navigation_fragment.ScreenFavorite
+import com.example.kulinerapp.home.navigation_fragment.ScreenHome
 import com.example.kulinerapp.ui.navigations.ItemNavigation
 import com.example.kulinerapp.ui.navigations.Screen
 
@@ -52,7 +52,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(navController, scaffoldState)
+                ScreenHome(navController, scaffoldState)
             }
             composable(
                 route = Screen.Detail.route,
@@ -61,10 +61,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 )
             ) {
                 val kulinerId = it.arguments?.getInt("kulinerId") ?: 0
-                DetailScreen(kulinerId, navController, scaffoldState)
+                ScreenDetail(kulinerId, navController, scaffoldState)
             }
             composable(Screen.Favorite.route) {
-                FavoriteScreen(navController, scaffoldState)
+                ScreenFavorite(navController, scaffoldState)
             }
             composable(Screen.Profile.route) {
                // ProfileScreen()

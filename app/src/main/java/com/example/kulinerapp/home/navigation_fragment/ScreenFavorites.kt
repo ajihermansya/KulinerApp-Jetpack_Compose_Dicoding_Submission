@@ -14,7 +14,7 @@ import com.example.kulinerapp.ui.component.ComponentLoading
 import com.example.kulinerapp.utils.StateInterface
 
 @Composable
-fun FavoriteScreen(navController: NavController, scaffoldState: ScaffoldState) {
+fun ScreenFavorite(navController: NavController, scaffoldState: ScaffoldState) {
     val viewModelFavorite = hiltViewModel<ViewModelFavorite>()
 
     viewModelFavorite.allFavoriteKuliners.collectAsState(StateInterface.Loading).value.let { uiState ->
