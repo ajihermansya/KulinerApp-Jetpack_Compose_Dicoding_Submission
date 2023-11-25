@@ -54,3 +54,4 @@ class ViewModelHome @Inject constructor(private val repository: Repository) : Vi
         searchKuliner(query)
     }
 }
+

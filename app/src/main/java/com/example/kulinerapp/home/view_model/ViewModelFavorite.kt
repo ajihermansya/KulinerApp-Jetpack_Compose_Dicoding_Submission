@@ -14,18 +14,28 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModelDetail @Inject constructor(private val repository: Repository) : ViewModel() {
-    private val _kuliner = MutableStateFlow<StateInterface<KulinerEntity>>(StateInterface.Loading)
-    val kuliners = _kuliner.asStateFlow()
+class ViewModelFavorite @Inject constructor(private val repository: Repository) : ViewModel() {
+    private val _allFavoriteKuliners = MutableStateFlow<StateInterface<List<KulinerEntity>>>(StateInterface.Loading)
+    val allFavoriteKuliners = _allFavoriteKuliners.asStateFlow()
 
-    fun getKuliner(id: Int) {
+    init {
+        fetchData()
+    }
+
+    private fun fetchData() {
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                repository.getKuliners(id).collect { _kuliner.value = StateInterface.Success(it) }
-            } catch (e: Exception) {
-                _kuliner.value = StateInterface.Error(e.message.toString())
-            }
+            repository.getAllFavoriteKuliners()
+                .catch { handleError(it) }
+                .collect { handleSuccess(it) }
         }
+    }
+
+    private fun handleError(error: Throwable) {
+        _allFavoriteKuliners.value = StateInterface.Error(error.message.toString())
+    }
+
+    private fun handleSuccess(data: List<KulinerEntity>) {
+        _allFavoriteKuliners.value = StateInterface.Success(data)
     }
 
     fun updateFavoriteKuliners(id: Int, isFavorite: Boolean) {

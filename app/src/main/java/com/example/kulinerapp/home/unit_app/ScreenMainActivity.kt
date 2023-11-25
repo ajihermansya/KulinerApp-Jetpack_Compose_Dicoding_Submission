@@ -19,6 +19,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.kulinerapp.home.navigation_fragment.DetailScreen
+import com.example.kulinerapp.home.navigation_fragment.FavoriteScreen
 import com.example.kulinerapp.home.navigation_fragment.HomeScreen
 import com.example.kulinerapp.ui.navigations.ItemNavigation
 import com.example.kulinerapp.ui.navigations.Screen
@@ -63,7 +64,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 DetailScreen(kulinerId, navController, scaffoldState)
             }
             composable(Screen.Favorite.route) {
-              //  FavoriteScreen(navController, scaffoldState)
+                FavoriteScreen(navController, scaffoldState)
             }
             composable(Screen.Profile.route) {
                // ProfileScreen()
@@ -107,7 +108,7 @@ fun BottomBar(
                 label = { Text(item.title) },
                 selected = currentRoute == item.screen.route,
                 selectedContentColor = MaterialTheme.colors.primaryVariant,
-                unselectedContentColor = Color.Gray,
+                unselectedContentColor = Color.Black,
                 onClick = {
                     navController.navigate(item.screen.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
