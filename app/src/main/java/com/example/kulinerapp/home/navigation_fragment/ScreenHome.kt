@@ -9,12 +9,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.kulinerapp.data.local.KulinerEntity
 import com.example.kulinerapp.home.view_model.ViewModelHome
-import com.example.kulinerapp.ui.component.AvailableContent
-import com.example.kulinerapp.ui.component.ComponentEmpty
-import com.example.kulinerapp.ui.component.ComponentError
-import com.example.kulinerapp.ui.component.ComponentLoading
-import com.example.kulinerapp.ui.component.ComponentSearchBar
-import com.example.kulinerapp.utils.StateInterface
+import com.example.kulinerapp.ui.ui_components.AvailableContent
+import com.example.kulinerapp.ui.ui_components.ComponentEmpty
+import com.example.kulinerapp.ui.ui_components.ComponentError
+import com.example.kulinerapp.ui.ui_components.ComponentLoading
+import com.example.kulinerapp.ui.ui_components.ComponentSearchBar
+import com.example.kulinerapp.utils.interface_utils.StateInterface
 
 @Composable
 fun ScreenHome(navController: NavController, scaffoldState: ScaffoldState) {

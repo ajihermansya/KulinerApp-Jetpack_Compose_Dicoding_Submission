@@ -8,7 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.example.kulinerapp.home.unit_app.MainScreen
-import com.example.kulinerapp.ui.theme.KulinerAppTheme
+import com.example.kulinerapp.ui.ui_theme.KulinerAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

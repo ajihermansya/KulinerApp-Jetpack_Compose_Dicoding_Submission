@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kulinerapp.data.local.KulinerEntity
 import com.example.kulinerapp.data.repository.Repository
-import com.example.kulinerapp.utils.StateInterface
+import com.example.kulinerapp.utils.interface_utils.StateInterface
 import com.example.kulinerapp.utils.list_data.DataKuliner
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

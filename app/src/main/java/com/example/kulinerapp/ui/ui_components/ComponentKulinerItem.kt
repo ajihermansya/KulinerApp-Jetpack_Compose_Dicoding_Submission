@@ -1,4 +1,4 @@
-package com.example.kulinerapp.ui.component
+package com.example.kulinerapp.ui.ui_components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -27,7 +27,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.kulinerapp.R
 import com.example.kulinerapp.data.local.KulinerEntity
-import com.example.kulinerapp.ui.navigations.Screen
+import com.example.kulinerapp.ui.ui_navigations.ScreenNavigation
 import com.example.kulinerapp.utils.set_sistem.DecimalFormat
 import com.example.kulinerapp.utils.set_sistem.RatingKuliner
 import kotlinx.coroutines.launch
@@ -63,7 +63,7 @@ fun ComponentKulinetItem(
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.small)
             .border(1.dp, Color.LightGray.copy(0.5f), MaterialTheme.shapes.small)
-            .clickable { navController.navigate(Screen.Detail.createRoute(id ?: 0)) },
+            .clickable { navController.navigate(ScreenNavigation.Detail.createRoute(id ?: 0)) },
     ) {
         Column {
             Box {

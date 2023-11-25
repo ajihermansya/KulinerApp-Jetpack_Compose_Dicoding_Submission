@@ -1,4 +1,4 @@
-package com.example.kulinerapp.ui.component
+package com.example.kulinerapp.ui.ui_components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

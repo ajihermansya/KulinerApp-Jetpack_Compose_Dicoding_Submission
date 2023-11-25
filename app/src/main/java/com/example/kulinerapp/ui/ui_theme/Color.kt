@@ -1,4 +1,4 @@
-package com.example.kulinerapp.ui.theme
+package com.example.kulinerapp.ui.ui_theme
 
 import androidx.compose.ui.graphics.Color
 

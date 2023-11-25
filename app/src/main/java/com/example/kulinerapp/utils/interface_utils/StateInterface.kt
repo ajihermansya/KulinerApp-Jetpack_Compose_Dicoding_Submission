@@ -1,4 +1,4 @@
-package com.example.kulinerapp.utils
+package com.example.kulinerapp.utils.interface_utils
 
 sealed class StateInterface<out T: Any?> {
     object Loading : StateInterface<Nothing>()

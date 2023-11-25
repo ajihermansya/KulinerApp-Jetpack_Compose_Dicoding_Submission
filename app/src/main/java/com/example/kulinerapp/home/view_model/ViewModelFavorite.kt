@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kulinerapp.data.local.KulinerEntity
 import com.example.kulinerapp.data.repository.Repository
-import com.example.kulinerapp.utils.StateInterface
+import com.example.kulinerapp.utils.interface_utils.StateInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelFavorite @Inject constructor(private val repository: Repository) : ViewModel() {
-    private val _allFavoriteKuliners = MutableStateFlow<StateInterface<List<KulinerEntity>>>(StateInterface.Loading)
+    private val _allFavoriteKuliners = MutableStateFlow<StateInterface<List<KulinerEntity>>>(
+        StateInterface.Loading)
     val allFavoriteKuliners = _allFavoriteKuliners.asStateFlow()
 
     init {

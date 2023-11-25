@@ -22,8 +22,8 @@ import com.example.kulinerapp.home.navigation_fragment.ScreenDetail
 import com.example.kulinerapp.home.navigation_fragment.ScreenFavorite
 import com.example.kulinerapp.home.navigation_fragment.ScreenHome
 import com.example.kulinerapp.home.navigation_fragment.ScreenProfile
-import com.example.kulinerapp.ui.navigations.ItemNavigation
-import com.example.kulinerapp.ui.navigations.Screen
+import com.example.kulinerapp.ui.ui_navigations.ItemNavigation
+import com.example.kulinerapp.ui.ui_navigations.ScreenNavigation
 
 @Composable
 
@@ -35,7 +35,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
     Scaffold(
         bottomBar = {
-            if (currentRoute != Screen.Detail.route) {
+            if (currentRoute != ScreenNavigation.Detail.route) {
                 BottomBar(navController, currentRoute)
             }
         },
@@ -49,14 +49,14 @@ fun MainScreen(modifier: Modifier = Modifier) {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route,
+            startDestination = ScreenNavigation.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) {
+            composable(ScreenNavigation.Home.route) {
                 ScreenHome(navController, scaffoldState)
             }
             composable(
-                route = Screen.Detail.route,
+                route = ScreenNavigation.Detail.route,
                 arguments = listOf(
                     navArgument("kulinerId") { type = NavType.IntType }
                 )
@@ -64,10 +64,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 val kulinerId = it.arguments?.getInt("kulinerId") ?: 0
                 ScreenDetail(kulinerId, navController, scaffoldState)
             }
-            composable(Screen.Favorite.route) {
+            composable(ScreenNavigation.Favorite.route) {
                 ScreenFavorite(navController, scaffoldState)
             }
-            composable(Screen.Profile.route) {
+            composable(ScreenNavigation.Profile.route) {
                 ScreenProfile()
             }
         }
@@ -83,17 +83,17 @@ fun BottomBar(
         ItemNavigation(
             title = "Home",
             icon = Icons.Rounded.Home,
-            screen = Screen.Home
+            screenNavigation = ScreenNavigation.Home
         ),
         ItemNavigation(
             title = "Favorite",
             icon = Icons.Rounded.Favorite,
-            screen = Screen.Favorite
+            screenNavigation = ScreenNavigation.Favorite
         ),
         ItemNavigation(
             title = "Profile",
             icon = Icons.Rounded.Person,
-            screen = Screen.Profile
+            screenNavigation = ScreenNavigation.Profile
         ),
     )
 
@@ -107,11 +107,11 @@ fun BottomBar(
                     )
                 },
                 label = { Text(item.title) },
-                selected = currentRoute == item.screen.route,
+                selected = currentRoute == item.screenNavigation.route,
                 selectedContentColor = MaterialTheme.colors.primaryVariant,
                 unselectedContentColor = Color.Black,
                 onClick = {
-                    navController.navigate(item.screen.route) {
+                    navController.navigate(item.screenNavigation.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }

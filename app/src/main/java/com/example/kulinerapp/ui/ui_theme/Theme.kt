@@ -1,4 +1,4 @@
-package com.example.kulinerapp.ui.theme
+package com.example.kulinerapp.ui.ui_theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors

@@ -33,8 +33,8 @@ import coil.compose.AsyncImage
 import com.example.kulinerapp.R
 import com.example.kulinerapp.data.local.KulinerEntity
 import com.example.kulinerapp.home.view_model.ViewModelDetail
-import com.example.kulinerapp.ui.component.ComponentError
-import com.example.kulinerapp.utils.StateInterface
+import com.example.kulinerapp.ui.ui_components.ComponentError
+import com.example.kulinerapp.utils.interface_utils.StateInterface
 import com.example.kulinerapp.utils.set_sistem.DecimalFormat
 import com.example.kulinerapp.utils.set_sistem.RatingKuliner
 import kotlinx.coroutines.launch
