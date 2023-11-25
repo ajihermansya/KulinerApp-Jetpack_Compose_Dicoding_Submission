@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
@@ -33,6 +34,7 @@ import com.example.kulinerapp.utils.set_sistem.RatingKuliner
 import kotlinx.coroutines.launch
 
 @Composable
+
 fun AvailableContent(
     listKuliner: List<KulinerEntity>,
     navController: NavController,
@@ -80,12 +82,14 @@ fun ComponentKulinetItem(
                 ) {
                     Row(
                         modifier = Modifier.padding(8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment  = Alignment.Top
                     ) {
                         Text(
                             text = location,
                             style = MaterialTheme.typography.body2,
-                            color = MaterialTheme.colors.onPrimary
+                            color = MaterialTheme.colors.onPrimary,
+                            modifier = Modifier.align(Alignment.CenterVertically)
                         )
                     }
                 }

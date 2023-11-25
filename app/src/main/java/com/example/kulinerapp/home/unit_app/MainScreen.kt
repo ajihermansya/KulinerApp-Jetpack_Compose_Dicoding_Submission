@@ -1,4 +1,4 @@
-package com.example.kulinerapp.home
+package com.example.kulinerapp.home.unit_app
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,11 +20,11 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.kulinerapp.home.navigation_fragment.HomeScreen
-import com.example.kulinerapp.ui.navigations.NavigationItem
+import com.example.kulinerapp.ui.navigations.ItemNavigation
 import com.example.kulinerapp.ui.navigations.Screen
 
 @Composable
-@Preview
+
 fun MainScreen(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
@@ -56,11 +56,11 @@ fun MainScreen(modifier: Modifier = Modifier) {
             composable(
                 route = Screen.Detail.route,
                 arguments = listOf(
-                    navArgument("tourismId") { type = NavType.IntType }
+                    navArgument("kulinerId") { type = NavType.IntType }
                 )
             ) {
-                val tourismId = it.arguments?.getInt("tourismId") ?: 0
-               // DetailScreen(tourismId, navController, scaffoldState)
+                val kulinerId = it.arguments?.getInt("kulinerId") ?: 0
+               // DetailScreen(kulinerId, navController, scaffoldState)
             }
             composable(Screen.Favorite.route) {
               //  FavoriteScreen(navController, scaffoldState)
@@ -77,18 +77,18 @@ fun BottomBar(
     navController: NavHostController,
     currentRoute: String?,
 ) {
-    val navigationItems = listOf(
-        NavigationItem(
+    val itemNavigations = listOf(
+        ItemNavigation(
             title = "Home",
             icon = Icons.Rounded.Home,
             screen = Screen.Home
         ),
-        NavigationItem(
+        ItemNavigation(
             title = "Favorite",
             icon = Icons.Rounded.Favorite,
             screen = Screen.Favorite
         ),
-        NavigationItem(
+        ItemNavigation(
             title = "Profile",
             icon = Icons.Rounded.Person,
             screen = Screen.Profile
@@ -96,7 +96,7 @@ fun BottomBar(
     )
 
     BottomNavigation(backgroundColor = Color.White) {
-        navigationItems.forEach { item ->
+        itemNavigations.forEach { item ->
             BottomNavigationItem(
                 icon = {
                     Icon(

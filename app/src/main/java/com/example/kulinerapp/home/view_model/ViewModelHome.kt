@@ -18,8 +18,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelHome @Inject constructor(private val repository: Repository) : ViewModel() {
-    private val _allTourism = MutableStateFlow<StateInterface<List<KulinerEntity>>>(StateInterface.Loading)
-    val allTourism = _allTourism.asStateFlow()
+    private val _allKuliner = MutableStateFlow<StateInterface<List<KulinerEntity>>>(StateInterface.Loading)
+    val allKuliner = _allKuliner.asStateFlow()
 
     private val _StateHome = mutableStateOf(StateHome())
     val stateHome: State<StateHome> = _StateHome
@@ -29,17 +29,17 @@ class ViewModelHome @Inject constructor(private val repository: Repository) : Vi
             repository.getAllKuliners().collect { tourism ->
                 when (tourism.isEmpty()) {
                     true -> repository.insertAllKuliners(DataKuliner.dummy)
-                    else -> _allTourism.value = StateInterface.Success(tourism)
+                    else -> _allKuliner.value = StateInterface.Success(tourism)
                 }
             }
         }
     }
 
-    private fun searchTourism(query: String) {
+    private fun searchKuliner(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.searchKuliners(query)
-                .catch { _allTourism.value = StateInterface.Error(it.message.toString()) }
-                .collect { _allTourism.value = StateInterface.Success(it) }
+                .catch { _allKuliner.value = StateInterface.Error(it.message.toString()) }
+                .collect { _allKuliner.value = StateInterface.Success(it) }
         }
     }
 
@@ -51,6 +51,6 @@ class ViewModelHome @Inject constructor(private val repository: Repository) : Vi
 
     fun onQueryChange(query: String) {
         _StateHome.value = _StateHome.value.copy(query = query)
-        searchTourism(query)
+        searchKuliner(query)
     }
 }

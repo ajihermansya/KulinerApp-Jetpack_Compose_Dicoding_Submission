@@ -21,18 +21,18 @@ fun HomeScreen(navController: NavController, scaffoldState: ScaffoldState) {
     val homeViewModel = hiltViewModel<ViewModelHome>()
     val homeState by homeViewModel.stateHome
 
-    homeViewModel.allTourism.collectAsState(StateInterface.Loading).value.let { uiState ->
+    homeViewModel.allKuliner.collectAsState(StateInterface.Loading).value.let { uiState ->
         when (uiState) {
             is StateInterface.Loading -> ComponentLoading()
             is StateInterface.Error -> ComponentError()
             is StateInterface.Success -> {
                 HomeContent(
-                    listTourism = uiState.data,
+                    listKuliner = uiState.data,
                     navController = navController,
                     scaffoldState = scaffoldState,
                     query = homeState.query,
                     onQueryChange = homeViewModel::onQueryChange,
-                    onUpdateFavoriteTourism = homeViewModel::updateFavoriteKuliners
+                    onUpdateFavoriteKuliner = homeViewModel::updateFavoriteKuliners
                 )
             }
         }
@@ -41,18 +41,18 @@ fun HomeScreen(navController: NavController, scaffoldState: ScaffoldState) {
 
 @Composable
 fun HomeContent(
-    listTourism: List<KulinerEntity>,
+    listKuliner: List<KulinerEntity>,
     navController: NavController,
     scaffoldState: ScaffoldState,
     query: String,
     onQueryChange: (String) -> Unit,
-    onUpdateFavoriteTourism: (id: Int, isFavorite: Boolean) -> Unit
+    onUpdateFavoriteKuliner: (id: Int, isFavorite: Boolean) -> Unit
 ) {
     Column {
         ComponentSearchBar(query = query, onQueryChange = onQueryChange)
-        when (listTourism.isEmpty()) {
+        when (listKuliner.isEmpty()) {
             true -> ComponentEmpty()
-            false -> AvailableContent(listTourism, navController, scaffoldState, onUpdateFavoriteTourism)
+            false -> AvailableContent(listKuliner, navController, scaffoldState, onUpdateFavoriteKuliner)
         }
     }
 }
