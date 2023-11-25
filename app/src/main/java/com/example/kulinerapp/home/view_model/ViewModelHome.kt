@@ -28,7 +28,7 @@ class ViewModelHome @Inject constructor(private val repository: Repository) : Vi
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAllKuliners().collect { kuliner ->
                 when (kuliner.isEmpty()) {
-                    true -> repository.insertAllKuliners(DataKuliner.dummy)
+                    true -> repository.insertAllKuliners(DataKuliner.kuliners)
                     else -> _allKuliner.value = StateInterface.Success(kuliner)
                 }
             }

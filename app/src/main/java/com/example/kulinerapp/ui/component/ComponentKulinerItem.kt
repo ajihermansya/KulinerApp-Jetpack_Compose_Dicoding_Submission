@@ -71,7 +71,7 @@ fun ComponentKulinetItem(
                     model = photoUrl,
                     contentDescription = name,
                     contentScale = ContentScale.FillWidth,
-                    placeholder = painterResource(R.drawable.placeholder_image),
+                    placeholder = painterResource(R.drawable.icon_image),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Box(
@@ -138,9 +138,9 @@ fun ComponentKulinetItem(
                             tint = Color(0xFFFFCC00)
                         )
                     }
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(2.dp))
                     Text(
-                        text = "$rating/10 (${DecimalFormat(totalReview)} reviews)",
+                        text = "$rating/5 (${DecimalFormat(totalReview)} reviews)",
                         style = MaterialTheme.typography.body2
                     )
                 }

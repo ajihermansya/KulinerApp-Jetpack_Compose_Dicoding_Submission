@@ -79,7 +79,7 @@ fun DetailContent(
                     model = photoUrl,
                     contentDescription = name,
                     contentScale = ContentScale.Crop,
-                    placeholder = painterResource(R.drawable.placeholder_image),
+                    placeholder = painterResource(R.drawable.icon_image),
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(300.dp)
