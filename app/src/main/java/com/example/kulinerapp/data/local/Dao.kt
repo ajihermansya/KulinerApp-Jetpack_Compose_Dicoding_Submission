@@ -15,13 +15,13 @@ interface Dao {
     fun getAllFavoriteKuliner(): Flow<List<KulinerEntity>>
 
     @Query("SELECT * FROM kuliner WHERE id = :id")
-    fun getTourism(id: Int): Flow<KulinerEntity>
+    fun getKuliner(id: Int): Flow<KulinerEntity>
 
     @Query("SELECT * FROM kuliner WHERE name LIKE '%' || :query || '%'")
     fun searchKuliner(query: String): Flow<List<KulinerEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllKuliner(tourismList: List<KulinerEntity>)
+    suspend fun insertAllKuliner(kulinerList: List<KulinerEntity>)
 
     @Query("UPDATE kuliner SET isFavorite = :isFavorite WHERE id = :id")
     suspend fun updateFavoriteKuliner(id: Int, isFavorite: Boolean)

@@ -53,7 +53,7 @@ fun ComponentKulinetItem(
     kuliner: KulinerEntity,
     navController: NavController,
     scaffoldState: ScaffoldState,
-    onUpdateFavoriteTourism: (id: Int, isFavorite: Boolean) -> Unit,
+    onUpdateFavoriteKuliner: (id: Int, isFavorite: Boolean) -> Unit,
 ) {
     val coroutineScope = rememberCoroutineScope()
     val (id, name, _, location, photoUrl, rating, totalReview, isFavorite) = kuliner
@@ -117,7 +117,7 @@ fun ComponentKulinetItem(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = null
                             ) {
-                                onUpdateFavoriteTourism(id ?: 0, !isFavorite)
+                                onUpdateFavoriteKuliner(id ?: 0, !isFavorite)
                                 coroutineScope.launch {
                                     scaffoldState.snackbarHostState.showSnackbar(
                                         message = "$name ${if (isFavorite) "removed from" else "added as"} favorite ",

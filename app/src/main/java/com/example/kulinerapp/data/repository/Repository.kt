@@ -7,11 +7,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class Repository @Inject constructor(private val tourismDao: Dao) {
-    fun getAllKuliners() = tourismDao.getAllKuliner()
-    fun getAllFavoriteKuliners() = tourismDao.getAllFavoriteKuliner()
-    fun getKuliners(id: Int) = tourismDao.getTourism(id)
-    fun searchKuliners(query: String) = tourismDao.searchKuliner(query)
-    suspend fun insertAllKuliners(tourism: List<KulinerEntity>) = tourismDao.insertAllKuliner(tourism)
-    suspend fun updateFavoriteKuliners(id: Int, isFavorite: Boolean) = tourismDao.updateFavoriteKuliner(id, isFavorite)
+class Repository @Inject constructor(private val kulinerDao: Dao) {
+    fun getAllKuliners() = kulinerDao.getAllKuliner()
+    fun getAllFavoriteKuliners() = kulinerDao.getAllFavoriteKuliner()
+    fun getKuliners(id: Int) = kulinerDao.getKuliner(id)
+    fun searchKuliners(query: String) = kulinerDao.searchKuliner(query)
+    suspend fun insertAllKuliners(kuliner: List<KulinerEntity>) = kulinerDao.insertAllKuliner(kuliner)
+    suspend fun updateFavoriteKuliners(id: Int, isFavorite: Boolean) = kulinerDao.updateFavoriteKuliner(id, isFavorite)
 }
